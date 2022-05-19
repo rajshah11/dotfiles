@@ -13,6 +13,11 @@ source ~/.bashrc
 
 source ~/.zshrc.private.zsh
 
+# Load all scripts in oh-my-zsh script folder
+for file in ~/dotfiles/oh-my-zsh/*; do
+    source "$file"
+done
+
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none

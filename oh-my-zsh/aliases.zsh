@@ -1,18 +1,22 @@
 # Enable aliases to be sudo’ed
 alias sudo="sudo "
 
-# Navigation
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
 # Shortcuts
-alias ls="ls --color"
 alias o="open"
 alias oo="open ."
 alias e="code"
-alias cc="code ."
+alias ec="code ."
+
+# Open webpage
+function ow(){
+if [[ "$1" == "https://*" || "$1" == "http://*" ]];
+then
+    open $1
+else
+    local pre="https://"
+    open ${pre}$1
+fi
+}
 
 # Git plugin aliases extensions
 alias grbi="grb -i"
