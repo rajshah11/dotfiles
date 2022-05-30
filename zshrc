@@ -13,8 +13,8 @@ source ~/.bashrc
 
 source ~/.zshrc.private.zsh
 
-# Load all scripts in oh-my-zsh script folder
-for file in ~/dotfiles/oh-my-zsh/*; do
+# Load all scripts in oh-my-zsh custom folder
+for file in ~/dotfiles/ohmyzsh/custom/*; do
     source "$file"
 done
 
