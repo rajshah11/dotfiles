@@ -1,12 +1,17 @@
 export ZSH="$HOME/.oh-my-zsh"
+fpath+=$HOME/dotfiles/pure
+zstyle :prompt:pure:git:branch color '#6699CC'
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
-plugins=(aliases alias-finder git ruby thefuck)
+plugins=(aliases alias-finder battery git ruby thefuck)
 
 gh_plugins=(zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
+RPROMPT='$(battery_pct_prompt)'
+autoload -U promptinit; promptinit
+prompt pure
 
 autoload -Uz compinit; compinit
 autoload -Uz bashcompinit; bashcompinit
@@ -19,7 +24,7 @@ source ~/.zshrc.private.zsh
 for file in ~/dotfiles/ohmyzsh-custom/*; do
     source "$file"
 done
-unset file 
+unset file
 
 for plugin ($gh_plugins); do
     source "$HOME/dotfiles/ohmyzsh-plugins/$plugin/$plugin.plugin.zsh"
