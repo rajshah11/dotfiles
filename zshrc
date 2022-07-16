@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-fpath+=$HOME/dotfiles/pure
+fpath+=($HOME/.pure)
 zstyle :prompt:pure:git:branch color '#6699CC'
 
 ZSH_THEME=""
@@ -21,13 +21,13 @@ source ~/.bashrc
 source ~/.zshrc.private.zsh
 
 # Load all scripts in oh-my-zsh custom folder
-for file in ~/dotfiles/ohmyzsh-custom/*; do
+for file in ~/.ohmyzsh-custom/*; do
     source "$file"
 done
 unset file
 
 for plugin ($gh_plugins); do
-    source "$HOME/dotfiles/ohmyzsh-plugins/$plugin/$plugin.plugin.zsh"
+    source "$HOME/.ohmyzsh-plugins/$plugin/$plugin.plugin.zsh"
 done
 unset plugin
 
