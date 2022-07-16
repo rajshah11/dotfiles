@@ -4,7 +4,7 @@ zstyle :prompt:pure:git:branch color '#6699CC'
 
 ZSH_THEME=""
 
-plugins=(aliases alias-finder battery git ruby thefuck)
+plugins=(aliases alias-finder battery git ruby)
 
 gh_plugins=(zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
@@ -13,8 +13,6 @@ RPROMPT='$(battery_pct_prompt)'
 autoload -U promptinit; promptinit
 prompt pure
 
-autoload -Uz compinit; compinit
-autoload -Uz bashcompinit; bashcompinit
 source $HOME/.bash_profile
 source $HOME/.bashrc
 

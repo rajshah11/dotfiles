@@ -7,26 +7,28 @@
 ########## Variables
 
 DOTFILES=~/dotfiles                    # dotfiles directory
-BACKUPDOTFILESDIR=~/dotfiles_old  
+BACKUPDOTFILES=~/dotfiles_old  
 
-RED="\033[1;31m"
 GREEN="\033[1;32m"
 YELLOW="\033[1;33m"
 BLUE="\033[1;34m"
 NOCOLOR="\033[0m"
 
+CURRENT_TIME=$(date "+%Y.%m.%d-%H.%M.%S")
+BACKUPDOTFILES_CT=$BACKUPDOTFILES.$CURRENT_TIME
 # old dotfiles backup directory
 files=(zshrc ohmyzsh pure ohmyzsh-custom ohmyzsh-plugins)    # list of files/folders to symlink in homedir
 
+
 ##########
 echo "${YELLOW}Updating submodules${NOCOLOR}"
-git submodule update --init --recursive
+git submodule update --remote --merge
 echo "${GREEN}...done${NOCOLOR}"
 echo -e "\n\n"
 
 # create dotfiles_old in homedir
-echo "${YELLOW}Creating $BACKUPDOTFILESDIR for backup of any existing dotfiles in ~${NOCOLOR}"
-mkdir -p $BACKUPDOTFILESDIR
+echo "${YELLOW}Creating $BACKUPDOTFILES_CT for backup of any existing dotfiles in ~${NOCOLOR}"
+mkdir -p "$BACKUPDOTFILES_CT"
 echo "${GREEN}...done${NOCOLOR}"
 echo -e "\n\n"
 
@@ -38,8 +40,8 @@ echo -e "\n\n"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in "${files[@]}"; do
-    echo "${BLUE}Moving any existing dotfiles from ~ to $BACKUPDOTFILESDIR${NOCOLOR}"
-    mv ~/."$file" $BACKUPDOTFILESDIR
+    echo "${BLUE}Moving any existing dotfiles from ~ to $BACKUPDOTFILES_CT${NOCOLOR}"
+    mv ~/."$file" "$BACKUPDOTFILES_CT"
     echo "${BLUE}Creating symlink to $file in home directory.${NOCOLOR}"
     ln -sfh $DOTFILES/"$file" ~/."$file"
     echo
