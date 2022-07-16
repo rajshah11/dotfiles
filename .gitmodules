@@ -1,11 +1,9 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
-	ignore = dirty
 [submodule "ohmyzsh"]
 	path = ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh/
-	ignore = dirty
 [submodule "ohmyzsh-plugins/zsh-history-substring-search"]
 	path = ohmyzsh-plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search

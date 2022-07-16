@@ -1,4 +1,4 @@
-export ZSH="$HOME/.oh-my-zsh"
+export OMZSH="$HOME/.ohmyzsh"
 fpath+=($HOME/.pure)
 zstyle :prompt:pure:git:branch color '#6699CC'
 
@@ -8,20 +8,20 @@ plugins=(aliases alias-finder battery git ruby thefuck)
 
 gh_plugins=(zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
-source $ZSH/oh-my-zsh.sh
+source $OMZSH/oh-my-zsh.sh
 RPROMPT='$(battery_pct_prompt)'
 autoload -U promptinit; promptinit
 prompt pure
 
 autoload -Uz compinit; compinit
 autoload -Uz bashcompinit; bashcompinit
-source ~/.bash_profile
-source ~/.bashrc
+source $HOME/.bash_profile
+source $HOME/.bashrc
 
-source ~/.zshrc.private.zsh
+source $HOME/.zshrc.private.zsh
 
 # Load all scripts in oh-my-zsh custom folder
-for file in ~/.ohmyzsh-custom/*; do
+for file in $HOME/.ohmyzsh-custom/*; do
     source "$file"
 done
 unset file
