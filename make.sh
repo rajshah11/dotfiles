@@ -41,7 +41,8 @@ echo -e "\n\n"
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in "${files[@]}"; do
     echo "${BLUE}Moving any existing dotfiles from ~ to $BACKUPDOTFILES_CT${NOCOLOR}"
-    mv ~/."$file" "$BACKUPDOTFILES_CT"
+    cp -LR ~/."$file" "$BACKUPDOTFILES_CT"
+    rm -f ~/."$file"
     echo "${BLUE}Creating symlink to $file in home directory.${NOCOLOR}"
     ln -sfh $DOTFILES/"$file" ~/."$file"
     echo
