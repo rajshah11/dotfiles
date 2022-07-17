@@ -1,4 +1,4 @@
-# dotfiles to turbo boost your ZSH productivity on MacOS 🚀
+# dotfiles to turbo boost your ZSH productivity 🚀
 
 <span style="font-size:larger;">After installation of these dotfiles, you will have a smooth, minimal ZSH prompt with awesome aliases, and features like alias finder, autosuggestions, syntax highlighting and history substring search.<span style="font-size:larger;">
 
