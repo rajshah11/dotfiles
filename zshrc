@@ -13,10 +13,17 @@ RPROMPT='$(battery_pct_prompt)'
 autoload -U promptinit; promptinit
 prompt pure
 
-source $HOME/.bash_profile
-source $HOME/.bashrc
+if [ -f "$HOME/.bash_profile" ]; then
+    source $HOME/.bash_profile
+fi
 
-source $HOME/.zshrc.private.zsh
+if [ -f "$HOME/.bashrc" ]; then
+    source $HOME/.bashrc
+fi
+
+if [ -f "$HOME/.zshrc.private.zsh" ]; then
+    source $HOME/.zshrc.private.zsh
+fi
 
 # Load all scripts in oh-my-zsh custom folder
 for file in $HOME/.ohmyzsh-custom/*; do
