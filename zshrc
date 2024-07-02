@@ -1,10 +1,11 @@
 export OMZSH="$HOME/.ohmyzsh"
+export EDITOR="code -w"
 fpath+=($HOME/.pure)
 zstyle :prompt:pure:git:branch color '#6699CC'
 
 ZSH_THEME=""
 
-plugins=(aliases alias-finder battery git ruby)
+plugins=(aliases alias-finder battery git ruby common-aliases)
 
 gh_plugins=(zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
 
@@ -39,6 +40,13 @@ unset plugin
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
+# ~/.zshrc
+
+zstyle ':omz:plugins:alias-finder' autoload yes
+zstyle ':omz:plugins:alias-finder' longer yes
+zstyle ':omz:plugins:alias-finder' exact yes
+zstyle ':omz:plugins:alias-finder' cheaper yes
 
 bindkey '^a' autosuggest-accept
 bindkey '^t' autosuggest-toggle
