@@ -1,6 +1,9 @@
 export OMZSH="$HOME/.ohmyzsh"
 export EDITOR="code -w"
 
+fpath+=($HOME/.pure)
+
+
 ln -sf "$HOME/.spaceship-prompt/spaceship.zsh-theme" "$OMZSH/custom/themes/spaceship.zsh-theme"
 ZSH_THEME="spaceship"
 
@@ -11,6 +14,7 @@ gh_plugins=(zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substr
 source $OMZSH/oh-my-zsh.sh
 RPROMPT='$(battery_pct_prompt)'
 autoload -U promptinit; promptinit
+prompt pure
 
 if [ -f "$HOME/.bash_profile" ]; then
     source $HOME/.bash_profile
