@@ -5,7 +5,7 @@ fpath+=($HOME/.pure)
 
 
 ln -sf "$HOME/.spaceship-prompt/spaceship.zsh-theme" "$OMZSH/custom/themes/spaceship.zsh-theme"
-ZSH_THEME="spaceship"
+ZSH_THEME=""
 
 plugins=(aliases alias-finder battery git ruby common-aliases git-auto-fetch)
 
