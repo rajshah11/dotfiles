@@ -1,18 +1,15 @@
 export OMZSH="$HOME/.ohmyzsh"
 export EDITOR="code -w"
-fpath+=($HOME/.pure)
-zstyle :prompt:pure:git:branch color '#6699CC'
 
 ZSH_THEME=""
 
-plugins=(aliases alias-finder battery git ruby common-aliases)
+plugins=(aliases alias-finder battery git ruby common-aliases git-auto-fetch)
 
-gh_plugins=(zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+gh_plugins=(zsh-z zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search almostontop)
 
 source $OMZSH/oh-my-zsh.sh
 RPROMPT='$(battery_pct_prompt)'
 autoload -U promptinit; promptinit
-prompt pure
 
 if [ -f "$HOME/.bash_profile" ]; then
     source $HOME/.bash_profile
