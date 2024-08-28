@@ -1,7 +1,7 @@
 export OMZSH="$HOME/.ohmyzsh"
 export EDITOR="code -w"
 
-ln -s "$HOME/.spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+ln -sf "$HOME/.spaceship-prompt/spaceship.zsh-theme" "$OMZSH/custom/themes/spaceship.zsh-theme"
 ZSH_THEME="spaceship"
 
 plugins=(aliases alias-finder battery git ruby common-aliases git-auto-fetch)
