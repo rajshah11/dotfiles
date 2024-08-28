@@ -17,7 +17,7 @@ NOCOLOR="\033[0m"
 CURRENT_TIME=$(date "+%Y.%m.%d-%H.%M.%S")
 BACKUPDOTFILES_CT=$BACKUPDOTFILES.$CURRENT_TIME
 # old dotfiles backup directory
-files=(zshrc ohmyzsh pure ohmyzsh-custom ohmyzsh-plugins)    # list of files/folders to symlink in homedir
+files=(zshrc ohmyzsh spaceship-prompt ohmyzsh-custom ohmyzsh-plugins)    # list of files/folders to symlink in homedir
 
 
 ##########
