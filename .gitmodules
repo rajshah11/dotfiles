@@ -1,3 +1,6 @@
+[submodule "almostontop"]
+	path = ohmyzsh-plugins/almostontop
+	url = https://github.com/Valiev/almostontop
 [submodule "ohmyzsh"]
 	path = ohmyzsh
 	url = https://github.com/ohmyzsh/ohmyzsh/
