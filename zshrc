@@ -50,11 +50,25 @@ zstyle ':omz:plugins:alias-finder' longer yes
 zstyle ':omz:plugins:alias-finder' exact yes
 zstyle ':omz:plugins:alias-finder' cheaper yes
 
-bindkey '^a' autosuggest-accept
-bindkey '^t' autosuggest-toggle
-bindkey '^c' autosuggest-clear
-bindkey '^f' autosuggest-fetch
-bindkey '^e' autosuggest-execute
+bindkey '^[a' autosuggest-accept
+bindkey '^[t' autosuggest-toggle
+bindkey '^[c' autosuggest-clear
+bindkey '^[f' autosuggest-fetch
+bindkey '^[e' autosuggest-execute
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
+
+if [ -n "$TMUX" ]; then
+    precmd() {
+        local hostname=$(hostname -s)
+        local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+        local location=${branch:-$(basename "$PWD")}
+
+        if [ -n "$SSH_CLIENT" ]; then
+            tmux rename-window "ssh:${hostname}:${location}"
+        else
+            tmux rename-window "${hostname}:${location}"
+        fi
+    }
+fi
